@@ -1,0 +1,20 @@
+{
+  "name": "get_fcs_json",
+  "version": "1.0.0",
+  "description": "get json dump of fcs files from dynamodb",
+  "main": "server.js",
+  "dependencies": {
+    "aws-sdk": "^2.122.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
