@@ -28,3 +28,28 @@ docClient.scan(params, function(err, data) {
 		console.log(myjsons);
 	}
 });
+
+
+var params = {
+	    TableName: "TechnicalMetadata",
+	    FilterExpression: "s3_metadata.expuuid = :uuid",
+	    ExpressionAttributeValues: {
+	        ":uuid": "7192da80-8134-498f-a987-34419351bc6b"
+	    }
+	};
+	docClient.scan(params, function(err, data) {
+		if (err) {
+			console.log("Unable to query. Error:", JSON.stringify(err, null, 2));
+		} else {
+			console.log("Query succeeded.");
+			var myjsons = {};
+			data.Items.forEach(function(item) {
+				var myjson = item.s3_metadata;
+				myjson.keyName = item.keyName;
+				//console.log(item.keyName);
+				Object.assign(myjsons,myjson);
+				console.log(myjson);
+			});
+			console.log("fuck you");
+		}
+	});
