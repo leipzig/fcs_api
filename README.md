@@ -11,6 +11,11 @@ pm2 start server.js
 sudo pm2 startup systemd
 ```
 
+To restart:
+```
+sudo pm2 restart server
+```
+
 To access:
 The port will be either 8080 or 3000 depending on if the `ENV PORT` is set
 
@@ -22,4 +27,15 @@ http://uploader.cytovas.com:8080/uploads
 ### View a specific upload
 ```
 http://uploader.cytovas.com:8080/uploads
+```
+
+### Queue an experiment
+```
+http://uploader.cytovas.com:8080/{experiment_uuid}/{experiment_type}
+
+where
+experiment_type is one of 
+- `titration`
+- `voltration`
+- `case_control`
 ```

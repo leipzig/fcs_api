@@ -11,7 +11,8 @@ module.exports = function(app) {
 	
 	app.route('/uploads/experiment/:id')
     .get(fcs.list_uploads_by_exp);
-
-  app.route('/analysis/experiment/:id')
-    .get(fcs.analyze_experiment);
+  
+  //titration and other experiments
+  app.route('/analysis/experiment')
+    .post(fcs.analyze_experiment);
 };
